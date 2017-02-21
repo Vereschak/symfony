@@ -3,9 +3,24 @@ app:
     type:     annotation
 
 blog_list:
-    path:      /blog
+    path:      /blog/{page}
     defaults:  { _controller: AppBundle:Blog:list }
+    requirements:
+            page: '\d+'
 
 blog_show:
     path:      /blog/{slug}
     defaults:  { _controller: AppBundle:Blog:show }
+
+
+article_show:
+    path:      /article/{slug}
+    defaults:  { _controller: AppBundle:Article:show }
+
+welcome:
+    path:      /welcome
+    defaults:  { _controller: AppBundle:Welcome:show}
+
+test:
+    resource: "@TestBundle/Resources/config/routing.yml"
+    prefix:    /

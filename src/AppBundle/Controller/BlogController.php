@@ -16,13 +16,14 @@ use Symfony\Component\HttpFoundation\Response;
 class BlogController extends Controller
 {
 	/**
-	 * Matches /blog exactly
-	 *
-	 * @Route("/blog", name="blog_list")
+	 * @Route("/blog/{page}", name="blog_list", requirements={"page": "\d+"})
 	 */
-	public function listAction()
+	/*
+	 * blog_show name in config.php routing.yml
+	 * */
+	public function listAction($page)
 	{
-		return  new Response(__METHOD__);
+		return new Response(__METHOD__. ', params page:' . $page);
 		// ...
 	}
 
@@ -36,7 +37,21 @@ class BlogController extends Controller
 		// $slug will equal the dynamic part of the URL
 		// e.g. at /blog/yay-routing, then $slug='yay-routing'
 
-		// ...
-		return new Response(__METHOD__.', params:'.$slug);
+		//generate url
+		//url:/my_project/web/app_dev.php/blog/my-blog-post
+		$url = $this->generateUrl(
+			'blog_show',
+			array('slug' => 'my-blog-post')
+		);
+
+		//url:/my_project/web/app_dev.php/blog/slug?page=2&category=Symfony
+		$url = $this->get('router')->generate('blog_show', array(
+			'slug' => 'slug',
+			'page' => 2,
+			'category' => 'Symfony'
+		));
+
+		return new Response('url:'.$url);
+		//return new Response(__METHOD__ . ', params:' . $slug);
 	}
 }
