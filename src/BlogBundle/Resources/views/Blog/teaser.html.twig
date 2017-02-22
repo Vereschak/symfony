@@ -1,8 +1,9 @@
-{% extends "::base.html.twig" %}
-{% block body %}
-    <div class="page_title" id="page_title">
-        <h1>Блог</h1>
-    </div>
+{% extends "BlogBundle::layout.html.twig" %}
+{% block page_title %}
+    <h1>Блог</h1>
+{% endblock %}
+
+{% block content %}
     {% for blog in blogs %}
         <article>
             <div class="container blog_container">

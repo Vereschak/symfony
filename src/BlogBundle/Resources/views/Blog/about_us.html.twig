@@ -1,8 +1,6 @@
-{% extends "::base.html.twig" %}
-{%  block body %}
-<div class="page_title" id="page_title">
-    <h1>{{ about_us.name }}</h1>
-</div>
+{% extends "BlogBundle::layout.html.twig" %}
+{% block page_title %}<h1>{{ about_us.name }}</h1>{% endblock %}
+{% block content %}
     <article>
         <div class="container blog_container">
             <div class="field field-body">
@@ -14,4 +12,5 @@
         </div>
     </article>
 {% endblock %}
+
 
