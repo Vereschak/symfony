@@ -1,0 +1,17 @@
+{% extends "::base.html.twig" %}
+{%  block body %}
+<div class="page_title" id="page_title">
+    <h1>{{ about_us.name }}</h1>
+</div>
+    <article>
+        <div class="container blog_container">
+            <div class="field field-body">
+                {{ about_us.text }}
+            </div>
+            <div class="field field-location">
+                {{ about_us.location }}
+            </div>
+        </div>
+    </article>
+{% endblock %}
+

@@ -1,0 +1,26 @@
+{% extends "::base.html.twig" %}
+{% block body %}
+    <div class="page_title" id="page_title">
+        <h1>Блог</h1>
+    </div>
+    {% for blog in blogs %}
+        <article>
+            <div class="container blog_container">
+                <div class="field field-body">
+                    {{ blog.summary }}
+                </div>
+                <div class="field field-created">
+                    {{ blog.created|date('Y-m-d H:i:s') }}
+                </div>
+                <div role="navigation">
+                    <ul>
+                        <li>
+                            <a href="{{ path("blog_view",{"id":blog.id}) }}">Далле</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </article>
+    {% endfor %}
+{% endblock %}
+
