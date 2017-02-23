@@ -2,8 +2,9 @@
     {% block body %}
         {% block main_menu %}
             <ul>
-                <li>Link 1</li>
-                <li>Link 2</li>
+                <li><a href="{{ path('homepage') }}">homepage</a></li>
+                <li><a href="{{ path('blog_teaser') }}">blog_teaser</a></li>
+                <li><a href="{{ path('blog_about_us') }}">blog_about_us</a></li>
             </ul>
         {% endblock %}
 
