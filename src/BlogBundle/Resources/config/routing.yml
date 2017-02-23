@@ -19,3 +19,7 @@ blog_about_us:
 show:
     path: /show
     defaults: { _controller: BlogBundle:Page:show }
+
+admin:
+    path: /admin
+    defaults: { _controller: BlogBundle:Admin:admin }
