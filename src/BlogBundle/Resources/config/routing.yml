@@ -23,3 +23,8 @@ show:
 admin:
     path: /admin
     defaults: { _controller: BlogBundle:Admin:admin }
+
+create_blog:
+    path: /admin/create_blog
+    defaults: { _controller: BlogBundle:Admin:createBlog }
+
